@@ -14,7 +14,6 @@ group :development do
   # Adding these because -omakase is required by the test
   # app and things blow up in CI without rubocop-rails for some reason
   gem "rubocop-rails"
-  gem "rubocop-rails-omakase"
   gem "rubocop-rake"
   gem "rubocop-rspec"
 end
@@ -25,6 +24,13 @@ group :development, :test do
 end
 
 group :test do
+  test_app_gemfile_contents = File.read("spec/fixtures/rails-test-app/Gemfile")
+  test_app_gemfile_contents = test_app_gemfile_contents.gsub(/^.*foobara-rails-command-connector.*\n/, "")
+  File.write("tmp/TestAppGemfile", test_app_gemfile_contents)
+  eval_gemfile "tmp/TestAppGemfile"
+
+  gem "rspec-rails"
+
   gem "foobara-spec-helpers"
   gem "rspec"
   gem "rspec-its"
