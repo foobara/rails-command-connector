@@ -9,6 +9,8 @@ RuboCop::RakeTask.new
 
 task default: %i[spec rubocop]
 
+# rubocop:disable Rails/RakeEnvironment
 task :environment do
   require_relative "boot"
 end
+# rubocop:enable Rails/RakeEnvironment

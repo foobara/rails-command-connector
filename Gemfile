@@ -11,6 +11,7 @@ group :development do
   gem "foob"
   gem "foobara-rubocop-rules"
   gem "guard-rspec"
+  gem "rubocop-rails-omakase"
   gem "rubocop-rake"
   gem "rubocop-rspec"
 end
