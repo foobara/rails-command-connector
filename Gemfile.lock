@@ -276,6 +276,7 @@ DEPENDENCIES
   rake
   rspec
   rspec-its
+  rubocop-rails
   rubocop-rails-omakase
   rubocop-rake
   rubocop-rspec
