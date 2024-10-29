@@ -1,9 +1,6 @@
-ENV["RAILS_ENV"] = "test"
-
-require_relative "../fixtures/rails-test-app/config/environment"
-require "rspec/rails"
-
 RSpec.describe Foobara::RailsCommandConnector do
+  start_rails
+
   it "has a version number" do
     expect(Foobara::RailsCommandConnector::VERSION).to_not be_nil
   end
