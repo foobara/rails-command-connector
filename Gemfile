@@ -24,6 +24,7 @@ group :development, :test do
 end
 
 group :test do
+  # This loads the dependencies for the test app since it runs in memory when we run the test suite
   test_app_gemfile_contents = File.read("spec/fixtures/rails-test-app/Gemfile")
   test_app_gemfile_contents = test_app_gemfile_contents.gsub(/^.*foobara-rails-command-connector.*\n/, "")
   File.write("tmp/TestAppGemfile", test_app_gemfile_contents)
