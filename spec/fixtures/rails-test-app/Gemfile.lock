@@ -1,5 +1,5 @@
 PATH
-  remote: ../rails-command-connector
+  remote: ../../..
   specs:
     foobara-rails-command-connector (0.0.1)
       foobara
