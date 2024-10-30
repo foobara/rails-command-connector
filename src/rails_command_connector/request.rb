@@ -6,12 +6,10 @@ module Foobara
       class Request < Foobara::CommandConnectors::Http::Rack::Request
         attr_accessor :controller
 
-        def initialize(controller)
+        def initialize(controller, prefix: nil)
           self.controller = controller
 
-          binding.pry
-
-          super(controller.request.env)
+          super(controller.request.env, prefix:)
         end
       end
     end
