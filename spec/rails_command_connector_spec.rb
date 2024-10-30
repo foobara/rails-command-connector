@@ -1,14 +1,11 @@
 RSpec.describe Foobara::RailsCommandConnector do
   start_rails
 
-  it "has a version number" do
-    expect(Foobara::RailsCommandConnector::VERSION).to_not be_nil
-  end
-
-  context "when hitting a url", type: :request do
+  context "when using run action", type: :request do
     it "can hit a URL" do
-      get "/up"
-      expect(response).to be_successful
+      get "/test_suite/run/CalculateExponent", params: { exponent: 3, base: 2 }
+      expect(response.status).to eq(200)
+      expect(response.body).to eq("8")
     end
   end
 end
