@@ -4,5 +4,5 @@ connector = Foobara::CommandConnectors::RailsCommandConnector.new(prefix: [ "tes
 RAILS_COMMAND_CONNECTOR = connector
 
 Rails.application.config.after_initialize do
-  connector.connect(CalculateExponent)
+  # connector.connect(CalculateExponent)
 end
