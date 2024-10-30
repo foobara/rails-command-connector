@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     foobara-rails-command-connector (0.0.1)
-      foobara-http-command-connector
+      foobara-rack-connector
 
 GEM
   remote: https://rubygems.org/
@@ -163,6 +163,11 @@ GEM
     foobara-organization-generator (0.0.1)
       foobara
       foobara-files-generator
+    foobara-rack-connector (0.0.2)
+      foobara
+      foobara-http-command-connector
+      foobara-util
+      rack
     foobara-rack-connector-generator (0.0.6)
       foobara
       foobara-files-generator

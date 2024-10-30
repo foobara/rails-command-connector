@@ -1,10 +1,11 @@
 RSpec.describe Foobara::RailsCommandConnector do
   start_rails
 
-  context "when hitting a url", type: :request do
+  context "running commands", type: :request do
     it "can hit a URL" do
-      get "/run/CalculateExponent", params: { exponent: 2, base: 3 }
-      expect(response).to be_successful
+      get "/test_suite/run/CalculateExponent", params: { exponent: 3, base: 2 }
+      expect(response.status).to eq(200)
+      expect(response.body).to eq("8")
     end
   end
 end

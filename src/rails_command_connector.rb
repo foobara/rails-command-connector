@@ -1,9 +1,9 @@
-require "foobara/http_command_connector"
+require "foobara/rack_connector"
 require_relative "rails_command_connector/request"
 
 module Foobara
   module CommandConnectors
-    class RailsCommandConnector < Foobara::CommandConnectors::Http
+    class RailsCommandConnector < Foobara::CommandConnectors::Http::Rack
       class << self
         # TODO: push this up the stack
         def supported_actions
@@ -41,6 +41,8 @@ module Foobara
       end
 
       def install_routes!
+        prefix = self.prefix
+
         normalized_prefix = if prefix
                               if prefix.is_a?(::Array)
                                 prefix = prefix.join("/")
