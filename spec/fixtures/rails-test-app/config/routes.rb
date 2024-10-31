@@ -1,7 +1,7 @@
-RAILS_COMMAND_CONNECTOR.draw!
+require_relative "command_connector"
 
 Rails.application.routes.draw do
-  command CalculateExponent
+  command :CalculateExponent
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

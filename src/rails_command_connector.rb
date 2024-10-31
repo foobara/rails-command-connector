@@ -23,9 +23,7 @@ module Foobara
         ]
 
         super(*, **opts, &)
-      end
 
-      def draw!
         install!
       end
 
@@ -51,7 +49,7 @@ module Foobara
       end
 
       def install_controller!
-        require_relative "rails_controller"
+        require "foobara/rails/controller"
       end
     end
   end
