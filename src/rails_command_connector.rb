@@ -36,7 +36,6 @@ module Foobara
 
         install_controller!
         install_routes!
-        install_routing_mapper_methods!
       end
 
       def install_routes!
@@ -53,16 +52,6 @@ module Foobara
 
       def install_controller!
         require_relative "rails_controller"
-      end
-
-      def install_routing_mapper_methods!
-        connector = self
-
-        ActionDispatch::Routing::Mapper.class_eval do
-          define_method :command do |*args, **opts, &block|
-            connector.connect(*args, **opts, &block)
-          end
-        end
       end
     end
   end
