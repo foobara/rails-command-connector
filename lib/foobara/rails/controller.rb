@@ -1,6 +1,6 @@
 class Foobara::RailsController < ApplicationController
   def run
-    foobara_response.command
+    # TODO: automatically put this on Rails.application.config or something
     foobara_response = command_connector.run(self)
 
     foobara_response.headers.each_pair do |key, value|
@@ -8,6 +8,18 @@ class Foobara::RailsController < ApplicationController
     end
 
     render json: foobara_response.body, status: foobara_response.status
+  end
+
+  def help
+    foobara_response = command_connector.run(self)
+
+    foobara_response.headers.each_pair do |key, value|
+      response.set_header(key, value)
+    end
+
+    # rubocop:disable Rails/OutputSafety
+    render html: foobara_response.body.html_safe, status: foobara_response.status
+    # rubocop:enable Rails/OutputSafety
   end
 
   private

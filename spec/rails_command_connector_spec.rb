@@ -8,4 +8,12 @@ RSpec.describe Foobara::RailsCommandConnector do
       expect(response.body).to eq("8")
     end
   end
+
+  context "when using help action", type: :request do
+    it "can hit a URL" do
+      get "/test_suite/help/CalculateExponent"
+      expect(response.status).to eq(200)
+      expect(response.body).to include("<h1>CalculateExponent</h1>")
+    end
+  end
 end
