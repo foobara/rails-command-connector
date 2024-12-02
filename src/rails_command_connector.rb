@@ -32,8 +32,13 @@ module Foobara
 
         @installed = true
 
+        attach_to_rails_application_config!
         install_controller!
         install_routes!
+      end
+
+      def attach_to_rails_application_config!
+        Rails.application.config.foobara_command_connector = self
       end
 
       def install_routes!
