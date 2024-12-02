@@ -5,13 +5,15 @@ class Foobara::RailsController < ApplicationController
   end
 
   def help
-    #     render html: foobara_response.body.html_safe, status: foobara_response.status
   end
 
   def list
   end
 
   def describe
+  end
+
+  def manifest
   end
 
   # TODO: add list and describe and manifest if it is different from describe

@@ -7,7 +7,7 @@ module Foobara
       class << self
         # TODO: push this up the stack
         def supported_actions
-          %i[run help describe list]
+          %i[run help describe list manifest]
         end
       end
 

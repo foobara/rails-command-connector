@@ -2,7 +2,7 @@ PATH
   remote: ../../..
   specs:
     foobara-rails-command-connector (0.0.1)
-      foobara-http-command-connector
+      foobara-rack-connector
 
 GEM
   remote: https://rubygems.org/
@@ -96,11 +96,16 @@ GEM
       reline (>= 0.3.8)
     drb (2.2.1)
     erubi (1.13.0)
-    foobara (0.0.11)
+    foobara (0.0.20)
       foobara-util
-    foobara-http-command-connector (0.0.1)
+    foobara-http-command-connector (0.0.6)
       foobara
-    foobara-util (0.0.6)
+    foobara-rack-connector (0.0.3)
+      foobara
+      foobara-http-command-connector
+      foobara-util
+      rack
+    foobara-util (0.0.7)
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.6)

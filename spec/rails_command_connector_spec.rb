@@ -32,4 +32,12 @@ RSpec.describe Foobara::RailsCommandConnector do
       expect(response.parsed_body.key?("inputs_type")).to be true
     end
   end
+
+  context "when using manifest action", type: :request do
+    it "can hit a URL" do
+      get "/test_suite/manifest/1"
+      expect(response.status).to eq(200)
+      expect(response.parsed_body.key?("command")).to be true
+    end
+  end
 end
