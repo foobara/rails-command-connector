@@ -5,7 +5,7 @@ RSpec.describe Foobara::RailsCommandConnector do
     it "can hit a URL" do
       get "/test_suite/run/CalculateExponent", params: { exponent: 3, base: 2 }
       expect(response.status).to eq(200)
-      expect(response.body).to eq("8")
+      expect(response.parsed_body).to eq(8)
     end
   end
 
@@ -14,6 +14,22 @@ RSpec.describe Foobara::RailsCommandConnector do
       get "/test_suite/help/CalculateExponent"
       expect(response.status).to eq(200)
       expect(response.body).to include("<h1>CalculateExponent</h1>")
+    end
+  end
+
+  context "when using list action", type: :request do
+    it "can hit a URL" do
+      get "/test_suite/list/CalculateExponent"
+      expect(response.status).to eq(200)
+      expect(response.parsed_body.first.first).to include("CalculateExponent")
+    end
+  end
+
+  context "when using describe action", type: :request do
+    it "can hit a URL" do
+      get "/test_suite/describe/CalculateExponent"
+      expect(response.status).to eq(200)
+      expect(response.parsed_body.key?("inputs_type")).to be true
     end
   end
 end
