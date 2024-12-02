@@ -6,9 +6,9 @@ Gem::Specification.new do |spec|
   spec.authors = ["Miles Georgi"]
   spec.email = ["azimux@gmail.com"]
 
-  spec.summary = "No description. Add one."
+  spec.summary = "Exposes Foobara commands through Rails router"
   spec.homepage = "https://github.com/foobara/rails-command-connector"
-  spec.license = "None specified yet"
+  spec.license = "MPL-2.0"
   spec.required_ruby_version = ">= #{File.read("#{__dir__}/.ruby-version")}"
 
   spec.metadata["homepage_uri"] = spec.homepage

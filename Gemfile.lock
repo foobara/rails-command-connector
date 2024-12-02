@@ -158,7 +158,7 @@ GEM
       foobara-files-generator
     foobara-files-generator (0.0.3)
       foobara
-    foobara-http-command-connector (0.0.3)
+    foobara-http-command-connector (0.0.6)
       foobara
     foobara-organization-generator (0.0.1)
       foobara
