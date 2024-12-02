@@ -1,7 +1,8 @@
-## [0.0.2] - 2024-12-02
+## [0.0.3] - 2024-12-02
 
 - Eliminate HTTP_COMMAND_CONNECTOR
 - Add help, list, describe, and manifest actions
+- Inherit default serializers
 
 ## [0.0.1] - 2024-12-01
 

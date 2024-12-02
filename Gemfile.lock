@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    foobara-rails-command-connector (0.0.2)
+    foobara-rails-command-connector (0.0.3)
       foobara-rack-connector
 
 GEM
@@ -324,9 +324,9 @@ GEM
       activesupport (>= 5.0.0)
       minitest
       nokogiri (>= 1.6)
-    rails-html-sanitizer (1.6.0)
+    rails-html-sanitizer (1.6.1)
       loofah (~> 2.21)
-      nokogiri (~> 1.14)
+      nokogiri (>= 1.15.7, != 1.16.7, != 1.16.6, != 1.16.5, != 1.16.4, != 1.16.3, != 1.16.2, != 1.16.1, != 1.16.0.rc1, != 1.16.0)
     railties (8.0.0)
       actionpack (= 8.0.0)
       activesupport (= 8.0.0)
@@ -369,7 +369,7 @@ GEM
       rspec-expectations (~> 3.13)
       rspec-mocks (~> 3.13)
       rspec-support (~> 3.13)
-    rspec-support (3.13.1)
+    rspec-support (3.13.2)
     rubocop (1.69.0)
       json (~> 2.3)
       language_server-protocol (>= 3.17.0)

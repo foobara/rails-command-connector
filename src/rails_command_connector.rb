@@ -13,16 +13,10 @@ module Foobara
 
       attr_accessor :supported_actions
 
-      # TODO: push these default serializers up into the base class
-      def initialize(*, supported_actions: self.class.supported_actions, **opts, &)
+      def initialize(*, supported_actions: self.class.supported_actions, **, &)
         self.supported_actions = supported_actions
 
-        opts[:default_serializers] ||= [
-          Foobara::CommandConnectors::Serializers::ErrorsSerializer,
-          Foobara::CommandConnectors::Serializers::JsonSerializer
-        ]
-
-        super(*, **opts, &)
+        super(*, **, &)
 
         install!
       end
