@@ -1,3 +1,7 @@
+## [0.0.5] - 2025-01-28
+
+- Fix problem preventing routes without any args
+
 ## [0.0.4] - 2025-01-07
 
 - Bump Ruby to 3.4.1

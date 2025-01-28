@@ -43,6 +43,9 @@ module Foobara
           connector.supported_actions.each do |action|
             match "#{prefix}/#{action}/*args", to: "foobara/rails##{action}",
                                                via: %i[get post patch put delete]
+            match "#{prefix}/#{action}", to: "foobara/rails##{action}",
+                                         via: %i[get post patch put delete],
+                                         defaults: { args: "" }
           end
         end
       end
