@@ -1,7 +1,12 @@
 require_relative "command_connector"
 
+mutator = Foobara::CommandConnectors::Http::MoveAttributeToCookie.for(:foo)
+
+
+
 Rails.application.routes.draw do
   command :CalculateExponent
+  command :FooBarBaz, response_mutators: mutator
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

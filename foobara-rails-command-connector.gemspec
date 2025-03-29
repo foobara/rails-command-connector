@@ -23,7 +23,7 @@ Gem::Specification.new do |spec|
     "CHANGELOG.md"
   ]
 
-  spec.add_dependency "foobara-rack-connector"
+  spec.add_dependency "foobara-rack-connector", "~> 0.0.1"
 
   spec.require_paths = ["lib"]
   spec.metadata["rubygems_mfa_required"] = "true"

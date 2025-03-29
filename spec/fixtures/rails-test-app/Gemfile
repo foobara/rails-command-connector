@@ -19,7 +19,11 @@ gem "bootsnap", require: false
 # Add HTTP asset caching/compression and X-Sendfile acceleration to Puma [https://github.com/basecamp/thruster/]
 gem "thruster", require: false
 
-gem "foobara-rails-command-connector", path: "../../../"
+gem "foobara-rails-command-connector", path: "#{__dir__}/../../../"
+
+# gem "foobara", path: "#{__dir__}/../../foobara"
+# gem "foobara-rack-connector", path: "#{__dir__}/../../rack-connector"
+# gem "foobara-http-command-connector", path: "#{__dir__}/../../http-command-connector"
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin Ajax possible
 # gem "rack-cors"

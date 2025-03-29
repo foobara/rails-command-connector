@@ -1,3 +1,7 @@
+## [0.0.6] - 2025-03-28
+
+- 
+
 ## [0.0.5] - 2025-01-28
 
 - Fix problem preventing routes without any args

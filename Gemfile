@@ -5,13 +5,16 @@ ruby Foobara::RailsCommandConnector::MINIMUM_RUBY_VERSION
 
 gemspec
 
-gem "foobara-dotenv-loader"
+# gem "foobara", path: "../foobara"
+# gem "foobara-rack-connector", path: "../rack-connector"
+# gem "foobara-http-command-connector", path: "../http-command-connector"
+gem "foobara-dotenv-loader", "~> 0.0.1"
 
 gem "rake"
 
 group :development do
   gem "foob"
-  gem "foobara-rubocop-rules"
+  gem "foobara-rubocop-rules", "~> 0.0.1"
   gem "guard-rspec"
   # Adding these because -omakase is required by the test
   # app and things blow up in CI without rubocop-rails for some reason
@@ -34,7 +37,7 @@ group :test do
 
   gem "rspec-rails"
 
-  gem "foobara-spec-helpers"
+  gem "foobara-spec-helpers", "~> 0.0.1"
   gem "rspec"
   gem "rspec-its"
   gem "ruby-prof"

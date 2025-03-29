@@ -7,6 +7,17 @@ RSpec.describe Foobara::RailsCommandConnector do
       expect(response.status).to eq(200)
       expect(response.parsed_body).to eq(8)
     end
+
+    context "when there's a attribute-to-cookie mutator being used" do
+      it "moves the attribute to a cookie" do
+        get "/test_suite/run/FooBarBaz"
+
+        expect(response.status).to eq(200)
+        expect(response.parsed_body).to eq("bar" => "bar value", "baz" => "baz value")
+
+        expect(response.headers["Set-Cookie"]).to include("foo=foo+value")
+      end
+    end
   end
 
   context "when using help action", type: :request do

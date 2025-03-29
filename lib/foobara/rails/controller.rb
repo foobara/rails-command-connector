@@ -1,4 +1,6 @@
 class Foobara::RailsController < ApplicationController
+  include ActionController::Cookies
+
   before_action :run_and_set_foobara_response
 
   def run
@@ -25,6 +27,20 @@ class Foobara::RailsController < ApplicationController
 
     foobara_response.headers.each_pair do |key, value|
       response.set_header(key, value)
+    end
+
+    foobara_response.cookies&.each do |cookie|
+      cookie_hash = { value: cookie.value }
+
+      cookie_hash[:path] = cookie.path if cookie.path
+      cookie_hash[:httponly] = cookie.httponly if cookie.httponly
+      cookie_hash[:secure] = cookie.secure if cookie.secure
+      cookie_hash[:same_site] = cookie.same_site if cookie.same_site
+      cookie_hash[:domain] = cookie.domain if cookie.domain
+      cookie_hash[:expires] = cookie.expires if cookie.expires
+      cookie_hash[:max_age] = cookie.max_age if cookie.max_age
+
+      cookies[cookie.name] = cookie_hash
     end
 
     format = if response.content_type == "application/json"
