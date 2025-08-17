@@ -20,10 +20,11 @@ gem "bootsnap", require: false
 gem "thruster", require: false
 
 gem "foobara-rails-command-connector", path: "#{__dir__}/../../../"
-
-# gem "foobara", path: "#{__dir__}/../../foobara"
-# gem "foobara-rack-connector", path: "#{__dir__}/../../rack-connector"
-# gem "foobara-http-command-connector", path: "#{__dir__}/../../http-command-connector"
+gem "foobara", path: "#{__dir__}/../../../../foobara"
+gem "foobara-auth-http", path: "#{__dir__}/../../../../auth-http"
+gem "foobara-auth", path: "#{__dir__}/../../../../auth"
+gem "foobara-http-command-connector", path: "#{__dir__}/../../../../http-command-connector"
+gem "foobara-rack-connector", path: "#{__dir__}/../../../../rack-connector"
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin Ajax possible
 # gem "rack-cors"
