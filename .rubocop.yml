@@ -1,6 +1,6 @@
 # This is required to make rubocop work. Unclear why, but I'm guessing it's because we are disabling cops from that
 # gem so we need to require it.
-require: rubocop-rails
+plugins: rubocop-rails
 
 AllCops:
   TargetRubyVersion: 3.2

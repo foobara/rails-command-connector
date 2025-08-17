@@ -7,7 +7,7 @@ module Foobara
       class << self
         # TODO: push this up the stack
         def supported_actions
-          %i[run help describe list manifest]
+          [:run, :help, :describe, :list, :manifest]
         end
       end
 
@@ -42,9 +42,9 @@ module Foobara
         Rails.application.routes.draw do
           connector.supported_actions.each do |action|
             match "#{prefix}/#{action}/*args", to: "foobara/rails##{action}",
-                                               via: %i[get post patch put delete]
+                                               via: [:get, :post, :patch, :put, :delete]
             match "#{prefix}/#{action}", to: "foobara/rails##{action}",
-                                         via: %i[get post patch put delete],
+                                         via: [:get, :post, :patch, :put, :delete],
                                          defaults: { args: "" }
           end
         end

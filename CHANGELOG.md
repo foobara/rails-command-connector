@@ -1,6 +1,10 @@
+## [0.1.0] - 2025-08-22
+
+- Mark as compatible with newer versions of foobara-rack-connector
+
 ## [0.0.6] - 2025-03-28
 
-- 
+- Add support for manipulating cookies
 
 ## [0.0.5] - 2025-01-28
 
