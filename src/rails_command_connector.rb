@@ -9,6 +9,14 @@ module Foobara
         def supported_actions
           [:run, :help, :describe, :list, :manifest]
         end
+
+        def installed?
+          @installed
+        end
+
+        def mark_installed!
+          @installed = true
+        end
       end
 
       attr_accessor :supported_actions
@@ -22,9 +30,9 @@ module Foobara
       end
 
       def install!
-        return if @installed
+        return if self.class.installed?
 
-        @installed = true
+        self.class.mark_installed!
 
         attach_to_rails_application_config!
         install_controller!

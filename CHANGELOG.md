@@ -1,3 +1,7 @@
+## [0.1.1] - 2025-10-26
+
+- Only install the first RailsCommandConnector to support multiple
+
 ## [0.1.0] - 2025-08-22
 
 - Mark as compatible with newer versions of foobara-rack-connector
