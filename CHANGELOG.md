@@ -1,3 +1,7 @@
+## [0.1.2] - 2025-10-29
+
+- Provide a way to prevent auto-installing a RailsCommandConnector
+
 ## [0.1.1] - 2025-10-26
 
 - Only install the first RailsCommandConnector to support multiple

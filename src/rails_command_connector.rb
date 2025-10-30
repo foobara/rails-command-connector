@@ -21,12 +21,15 @@ module Foobara
 
       attr_accessor :supported_actions
 
-      def initialize(*, supported_actions: self.class.supported_actions, **, &)
+      def initialize(*,
+                     supported_actions: self.class.supported_actions,
+                     skip_install: false,
+                     **, &)
         self.supported_actions = supported_actions
 
         super(*, **, &)
 
-        install!
+        install! unless skip_install
       end
 
       def install!
