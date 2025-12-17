@@ -26,9 +26,23 @@ This `command` method just calls `CommandConnector#connect` under the hood. It s
 the same DSL and all the same features. It just gives a way for routes created in this manner to
 live with your non-Foobara routes.
 
+A `RailsCommandConnector` will be automatically created if one doesn't exist, so you can simply:
+
+```ruby
+require "foobara/rails/routes"
+
+Rails.application.routes.draw do
+  command CreateCapybara
+  command IncrementAge
+  command FindCapybara
+end
+```
+
+If you need to customize the connector (e.g., set a prefix), you can create it manually before using `command`:
+
 ```ruby
 require "foobara/rails_command_connector"
-Foobara::CommandConnectors::RailsCommandConnector.new
+Foobara::CommandConnectors::RailsCommandConnector.new(prefix: ["api"])
 require "foobara/rails/routes"
 
 Rails.application.routes.draw do

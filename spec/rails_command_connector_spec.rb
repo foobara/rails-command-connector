@@ -51,4 +51,54 @@ RSpec.describe Foobara::RailsCommandConnector do
       expect(response.parsed_body.key?("command")).to be true
     end
   end
+
+  context "when using command DSL method" do
+    let(:original_connector) { Rails.application.config.foobara_command_connector }
+
+    around do |example|
+      # Save and restore the connector to avoid affecting other tests
+      original = Rails.application.config.foobara_command_connector
+      begin
+        example.run
+      ensure
+        Rails.application.config.foobara_command_connector = original
+      end
+    end
+
+    it "automatically creates a connector if one doesn't exist" do
+      Rails.application.config.foobara_command_connector = nil
+      expect(Rails.application.config.foobara_command_connector).to be_nil
+
+      mapper = ActionDispatch::Routing::Mapper.new(Rails.application.routes)
+      mapper.command(:CalculateExponent)
+
+      expect(Rails.application.config.foobara_command_connector).to be_a(Foobara::CommandConnectors::RailsCommandConnector)
+    end
+
+    it "uses existing connector if one is already present" do
+      existing_connector = Foobara::CommandConnectors::RailsCommandConnector.new(prefix: ["custom"], skip_install: true)
+      existing_connector.attach_to_rails_application_config!
+      Rails.application.config.foobara_command_connector = existing_connector
+
+      mapper = ActionDispatch::Routing::Mapper.new(Rails.application.routes)
+      mapper.command(:CalculateExponent)
+
+      expect(Rails.application.config.foobara_command_connector).to eq(existing_connector)
+      # Prefix is stored as a path string, not an array
+      expect(Rails.application.config.foobara_command_connector.prefix.to_s).to eq("/custom")
+    end
+
+    it "creates connector with default settings when auto-creating" do
+      Rails.application.config.foobara_command_connector = nil
+      expect(Rails.application.config.foobara_command_connector).to be_nil
+
+      mapper = ActionDispatch::Routing::Mapper.new(Rails.application.routes)
+      mapper.command(:CalculateExponent)
+
+      connector = Rails.application.config.foobara_command_connector
+      expect(connector).to be_a(Foobara::CommandConnectors::RailsCommandConnector)
+      # Default prefix is empty, which becomes an empty string path
+      expect(connector.prefix.to_s).to eq("")
+    end
+  end
 end
