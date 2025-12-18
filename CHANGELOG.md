@@ -1,3 +1,7 @@
+## [0.1.4] - 2025-12-18
+
+- Fix bug where rails config #foobara_command_connector does not exist yet
+
 ## [0.1.3] - 2025-12-18
 
 - Automatically create a RailsCommandConnector if one doesn't exist
