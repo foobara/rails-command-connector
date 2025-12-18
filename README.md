@@ -23,7 +23,7 @@ connector.connect(FindCapybara)
 ### Option 2: Expose commands using `command` when drawing routes
 
 This `command` method just calls `CommandConnector#connect` under the hood. It supports
-the same DSL and all the same features. It just gives a way for routes created in this manner to
+the same DSL and all the same features. It just gives a way for commands exposed in this manner to
 live with your non-Foobara routes.
 
 A `RailsCommandConnector` will be automatically created if one doesn't exist, so you can simply:

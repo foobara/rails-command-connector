@@ -1,3 +1,7 @@
+## [0.1.3] - 2025-12-18
+
+- Automatically create a RailsCommandConnector if one doesn't exist
+
 ## [0.1.2] - 2025-10-29
 
 - Provide a way to prevent auto-installing a RailsCommandConnector
