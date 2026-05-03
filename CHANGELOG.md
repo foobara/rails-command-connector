@@ -1,3 +1,7 @@
+## [0.1.5] - 2026-05-02
+
+- Don't double-add cookie headers
+
 ## [0.1.4] - 2025-12-18
 
 - Fix bug where rails config #foobara_command_connector does not exist yet
