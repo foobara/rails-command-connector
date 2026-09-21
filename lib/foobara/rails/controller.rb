@@ -36,9 +36,8 @@ class Foobara::RailsController < ApplicationController
              end
 
     body = foobara_response.body
-    # rubocop:disable Rails/OutputSafety
+    # rubocop:disable-next Rails/OutputSafety
     body = body.html_safe if format == :html
-    # rubocop:enable Rails/OutputSafety
 
     render format => body, status: foobara_response.status
   end
